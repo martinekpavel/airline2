@@ -1,0 +1,21 @@
+{% extends "flights/layout.html" %}
+
+{% block body %}
+<h1>Flights</h1>
+
+{% if request.user.is_authenticated %}
+<h2>Ahoj pilote ({{ request.user.first_name }})</h2>
+{% endif %}
+
+<ul>
+    {% for flight in flights %}
+        <li><a href="{% url 'flight' flight.id %}">
+
+            Flight {{ flight.id }}: {{ flight.origin }} to {{ flight.destination }}
+        </a>
+        
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
