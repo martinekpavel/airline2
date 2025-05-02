@@ -11,4 +11,9 @@
   <p>
     <a href="{% url 'index' %}">Back to Flight List</a>
   </p>
+
+
+  {% if flight.image %}
+  <img src="{{ flight.image.url }}" alt=""> 
+  {% endif %}
 {% endblock %}
